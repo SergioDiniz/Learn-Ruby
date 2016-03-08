@@ -13,4 +13,10 @@ class Biblioteca
   def livros_array
     @livros.values.flatten
   end
+
+  def filtro_por_categoria(categoria)
+    @livros[categoria].each do |livro|
+      yield livro if block_given?
+    end
+  end
 end
