@@ -3,9 +3,9 @@ require 'set'
 
 biblioteca = Biblioteca.new
 
-livro_ruby = Livro.new("Sérgio Diniz", 500, 60.50, :ruby)
-livro_ruby_2 = Livro.new("Bel", 500, 60.50, :ruby)
-livro_java = Livro.new("Sérgio Diniz", 300, 100.50, :java, "123-123456-2")
+livro_ruby = Livro.new("Sérgio Diniz", "Desenvolvendo em Ruby v1", 500, 60.50, :ruby)
+livro_ruby_2 = Livro.new("Bel", "Desenvolvendo em Ruby v2", 500, 60.50, :ruby)
+livro_java = Livro.new("Sérgio Diniz", "Desenvolvendo em Java", 300, 100.50, :java, "123-123456-2")
 
 biblioteca.adicionar(livro_ruby)
 biblioteca.adicionar(livro_ruby_2)
@@ -20,7 +20,6 @@ biblioteca.adicionar(livro_java)
 #   end
 # end
 
-
 # livros = Set.new [livro_java, livro_ruby, livro_ruby_2]
 
 # for livro in livros do
@@ -29,11 +28,47 @@ biblioteca.adicionar(livro_java)
 
 # numero = [1, 2, 3, 4, 5]
 
-# numero.each { |n| p n }
+# numero.each { |n| puts n * 2 }
+# numero.collect { |n| puts n * 2 }
+
+# biblioteca.filtro_por_categoria :ruby do |livro|
+#   puts livro
+# end
+
+# relatorio = Relatorio.new(biblioteca)
+# puts relatorio.total
+# puts relatorio.titulos
+
+# imprime_livro_no_console = lambda do
+#   p "executou lambda"
+# end
+
+# imprime_livro_no_console_proc = Proc.new do
+#   p "Executou proc"
+# end
+
+# biblioteca.filtro_por_categoria :ruby, &imprime_livro_no_console
 
 
-biblioteca.filtro_por_categoria :ruby do |livro|
-  puts livro
-  
-end
+# def proc_com_return
+#   Proc.new {
+#     return "Primeiro Retorno da Função proc"
+#   }.call
 
+#   "Segundo Retorno da Função prov"
+# end
+
+# def lambda_com_return
+#   lambda {
+#     return "Primeiro returno da função lambda"
+#   }.call
+
+#   "segundo retorna da função lambda"
+# end
+
+# puts proc_com_return
+# puts lambda_com_return
+
+soma = lambda { |x, y, z| x + y + z}.curry
+somo_definida = soma.call 1, 1
+puts somo_definida.call 1
