@@ -4,7 +4,7 @@ require 'yaml'
 
 biblioteca = Biblioteca.new
 
-# livro_ruby = Livro.new("Sérgio Diniz", "Desenvolvendo em Ruby v1", 500, 60.50, :ruby)
+livro_ruby = Livro.new("Sérgio Diniz", "Desenvolvendo em Ruby v1", 500, 60.50, :ruby)
 # livro_ruby_2 = Livro.new("Bel", "Desenvolvendo em Ruby v2", 500, 60.50, :ruby)
 # livro_java = Livro.new("Sérgio Diniz", "Desenvolvendo em Java", 300, 100.50, :java, "123-123456-2")
 
@@ -81,6 +81,13 @@ biblioteca = Biblioteca.new
 # desserializando_livro = YAML.load livro_serializado
 # p desserializando_livro
 
-puts biblioteca.livros
+# puts biblioteca.methods
 
+dvd_gospel = DVD.new "Sucessos Gospel", 100.0, :musica
+cd_gospel = CD.new "Sucessos Gospel vl.1", 40.0, :musica
+
+puts "Livro: Preço com desconto #{livro_ruby.preco_com_desconto}, Sem desconto #{livro_ruby.preco}" 
+puts "DVD: Preço com desconto #{dvd_gospel.preco_com_desconto}, Sem desconto #{dvd_gospel.preco}"
+p cd_gospel
+puts cd_gospel
 
