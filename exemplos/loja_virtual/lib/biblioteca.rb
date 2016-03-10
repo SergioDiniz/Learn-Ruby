@@ -2,12 +2,21 @@
 class Biblioteca
   attr_accessor :livros
   def initialize
-    @livros = {}
+    # @livros = {}
+    # @livros = []
+    @banco_de_arquivo = BancoDeArquivo.new
   end
-  
+
+  # def adicionar(livro)
+  #   @livros[livro.categoria] ||= []
+  #   @livros[livro.categoria] << livro
+  #   @banco_de_arquivo.salvar(livro)
+  # end
+
   def adicionar(livro)
-    @livros[livro.categoria] ||= []
-    @livros[livro.categoria] << livro
+    salva livro do
+      @livros << livro
+    end
   end
 
   def livros_array
@@ -15,8 +24,19 @@ class Biblioteca
   end
 
   def filtro_por_categoria(categoria)
-    @livros[categoria].each do |livro|
-      yield livro if block_given?
-    end
+    @livros.select { |livro| livro.categoria == categoria }
+  end
+
+  def livros
+    @livros ||= @banco_de_arquivo.carrega 
+  end
+
+  private
+
+  def salva(livro)
+    @banco_de_arquivo.salva livro
+    yield
   end
 end
+
+

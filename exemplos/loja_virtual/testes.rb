@@ -1,15 +1,16 @@
 require File.expand_path("lib/loja_virtual")
 require 'set'
+require 'yaml'
 
 biblioteca = Biblioteca.new
 
-livro_ruby = Livro.new("Sérgio Diniz", "Desenvolvendo em Ruby v1", 500, 60.50, :ruby)
-livro_ruby_2 = Livro.new("Bel", "Desenvolvendo em Ruby v2", 500, 60.50, :ruby)
-livro_java = Livro.new("Sérgio Diniz", "Desenvolvendo em Java", 300, 100.50, :java, "123-123456-2")
+# livro_ruby = Livro.new("Sérgio Diniz", "Desenvolvendo em Ruby v1", 500, 60.50, :ruby)
+# livro_ruby_2 = Livro.new("Bel", "Desenvolvendo em Ruby v2", 500, 60.50, :ruby)
+# livro_java = Livro.new("Sérgio Diniz", "Desenvolvendo em Java", 300, 100.50, :java, "123-123456-2")
 
-biblioteca.adicionar(livro_ruby)
-biblioteca.adicionar(livro_ruby_2)
-biblioteca.adicionar(livro_java)
+# biblioteca.adicionar(livro_ruby)
+# biblioteca.adicionar(livro_ruby_2)
+# biblioteca.adicionar(livro_java)
 
 # puts biblioteca.livros
 
@@ -69,6 +70,17 @@ biblioteca.adicionar(livro_java)
 # puts proc_com_return
 # puts lambda_com_return
 
-soma = lambda { |x, y, z| x + y + z}.curry
-somo_definida = soma.call 1, 1
-puts somo_definida.call 1
+# soma = lambda { |x, y, z| x + y + z}.curry
+# somo_definida = soma.call 1, 1
+# puts somo_definida.call 1
+
+# livro_serializado = YAML.dump livro_ruby
+# p livro_serializado
+
+
+# desserializando_livro = YAML.load livro_serializado
+# p desserializando_livro
+
+puts biblioteca.livros
+
+
