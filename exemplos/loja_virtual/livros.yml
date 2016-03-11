@@ -38,3 +38,30 @@ preco: 100.5
 categoria: :java
 isbn: 123-123456-2
 
+--- !ruby/object:Livro
+desconto: 0.1
+autor: Sérgio Diniz
+titulo: Desenvolvendo em Ruby v1
+numero_paginas: 500
+preco: 60.5
+categoria: :ruby
+isbn: '1'
+
+--- !ruby/object:Livro
+desconto: 0.1
+autor: Sérgio Diniz
+titulo: Desenvolvendo em Ruby v1
+numero_paginas: 500
+preco: 60.5
+categoria: :ruby
+isbn: '1'
+
+--- !ruby/object:Livro
+desconto: 0.1
+autor: Sérgio Diniz
+titulo: Desenvolvendo em Ruby v1
+numero_paginas: 500
+preco: 60.5
+categoria: :ruby
+isbn: '1'
+

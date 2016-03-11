@@ -2,6 +2,7 @@
 
 #
 class Livro < Midia
+  include FormatarMoeda
   attr_accessor :autor, :numero_paginas, :isbn
   def initialize(autor, titulo, numero_paginas, preco, categoria, isbn = "1")
     super()

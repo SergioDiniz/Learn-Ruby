@@ -1,5 +1,6 @@
 #
 class Biblioteca
+  include Enumerable
   attr_accessor :livros
   def initialize
     # @livros = {}
@@ -15,7 +16,7 @@ class Biblioteca
 
   def adicionar(livro)
     salva livro do
-      @livros << livro
+      livros << livro
     end
   end
 
@@ -28,15 +29,17 @@ class Biblioteca
   end
 
   def livros
-    @livros ||= @banco_de_arquivo.carrega 
+    @livros ||= @banco_de_arquivo.carrega
+  end
+
+  def each
+    livros.each { |livro| yield livro }
   end
 
   private
 
   def salva(livro)
-    @banco_de_arquivo.salva livro
+    @banco_de_arquivo.salvar livro
     yield
   end
 end
-
-

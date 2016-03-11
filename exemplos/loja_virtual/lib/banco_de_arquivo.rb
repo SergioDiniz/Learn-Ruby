@@ -1,3 +1,4 @@
+#
 class BancoDeArquivo
   require 'YAML'
 
