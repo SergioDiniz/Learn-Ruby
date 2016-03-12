@@ -3,6 +3,7 @@ module VendaFacil
   class Set
     attr_accessor :livros
     def initialize
+      @livros = ::Array.new()
       @banco_de_arquivo = BancoDeArquivo.new
     end
 

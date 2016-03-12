@@ -1,44 +1,4 @@
 --- !ruby/object:Livro
-autor: Sérgio Diniz
-titulo: Desenvolvendo em Ruby v1
-numero_paginas: 500
-preco: 60.5
-categoria: :ruby
-isbn: '1'
-
---- !ruby/object:Livro
-autor: Sérgio Diniz
-titulo: Desenvolvendo em Ruby v1
-numero_paginas: 500
-preco: 60.5
-categoria: :ruby
-isbn: '1'
-
---- !ruby/object:Livro
-autor: Sérgio Diniz
-titulo: Desenvolvendo em Ruby v1
-numero_paginas: 500
-preco: 60.5
-categoria: :ruby
-isbn: '1'
-
---- !ruby/object:Livro
-autor: Bel
-titulo: Desenvolvendo em Ruby v2
-numero_paginas: 500
-preco: 60.5
-categoria: :ruby
-isbn: '1'
-
---- !ruby/object:Livro
-autor: Sérgio Diniz
-titulo: Desenvolvendo em Java
-numero_paginas: 300
-preco: 100.5
-categoria: :java
-isbn: 123-123456-2
-
---- !ruby/object:Livro
 desconto: 0.1
 autor: Sérgio Diniz
 titulo: Desenvolvendo em Ruby v1
@@ -47,21 +7,13 @@ preco: 60.5
 categoria: :ruby
 isbn: '1'
 
---- !ruby/object:Livro
+--- !ruby/object:DVD
 desconto: 0.1
-autor: Sérgio Diniz
-titulo: Desenvolvendo em Ruby v1
-numero_paginas: 500
-preco: 60.5
-categoria: :ruby
-isbn: '1'
+titulo: Sucessos Gospel
+preco: 100.0
+categoria: :musica
 
---- !ruby/object:Livro
-desconto: 0.1
-autor: Sérgio Diniz
-titulo: Desenvolvendo em Ruby v1
-numero_paginas: 500
-preco: 60.5
-categoria: :ruby
-isbn: '1'
-
+--- !ruby/object:CD
+titulo: Sucessos Gospel vl.1
+preco: 40.0
+categoria: :musica
