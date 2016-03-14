@@ -2,7 +2,7 @@ require File.expand_path("lib/loja_virtual")
 require 'set'
 require 'yaml'
 
-biblioteca = Biblioteca.new
+# biblioteca = Biblioteca.new
 
 # livro_ruby = Livro.new("Sérgio Diniz", "Desenvolvendo em Ruby v1", 500, 60.50, :ruby)
 # livro_ruby_2 = Livro.new("Bel", "Desenvolvendo em Ruby v2", 500, 60.50, :ruby)
@@ -83,7 +83,7 @@ biblioteca = Biblioteca.new
 
 # puts biblioteca.methods
 
-dvd_gospel = DVD.new "Sucessos Gospel", 100.0, :musica
+# dvd_gospel = DVD.new "Sucessos Gospel", 100.0, :musica
 # cd_gospel = CD.new "Sucessos Gospel vl.1", 40.0, :musica
 
 # puts "Livro: Preço com desconto #{livro_ruby.preco_com_desconto}, Sem desconto #{livro_ruby.preco}"
@@ -107,14 +107,29 @@ dvd_gospel = DVD.new "Sucessos Gospel", 100.0, :musica
 # biblioteca.adicionar dvd_gospel
 # biblioteca.adicionar cd_gospel
 
-# puts biblioteca.midias_por_categoria :musica 
+# puts biblioteca.midias_por_categoria :musica
 
-# nova_revista = Revista.new("Aprenda Ruby")
+# nova_revista = Revista.new "Aprenda Ruby", 90.5
 # nova_revista2 = Revista.new("Aprenda java")
 
 # puts nova_revista.id
 # puts nova_revista2.id
 
 
-puts dvd_gospel.preco_formatado
-puts dvd_gospel.preco_com_desconto_formatado
+# puts dvd_gospel.preco_formatado
+# puts dvd_gospel.preco_com_desconto_formatado
+
+# nova_revista.save
+
+# nova_revista.preco = 130.9
+# nova_revista.save
+
+
+begin
+  revistas_ruby_pesquisa = Revista.find 4
+  p revistas_ruby_pesquisa
+rescue DocumentNotFound => e
+  puts e
+end
+
+puts "depois do find"

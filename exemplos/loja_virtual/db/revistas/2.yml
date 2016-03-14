@@ -1,0 +1,4 @@
+--- !ruby/object:Revista
+titulo: Aprenda Ruby
+preco: 130.9
+id: 2
