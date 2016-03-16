@@ -1,22 +1,28 @@
 #
 class Revista
-  attr_accessor :titulo, :preco, :id
-
   include ActiveFile
+
+  field :titulo
+  field :preco
+
+  def to_s
+    "Titulo: #{titulo}"
+  end
+
   # @id = 0
 
   # def self.id
   #   @id += 1
   # end
 
-  def initialize(titulo, preco)
-    # @id = self.class.id
-    @titulo = titulo
-    @preco = preco
-    @id = self.class.next_id
-    @new_record = true
-    @destroyed = false
-  end
+  # def initialize(titulo, preco)
+  #   # @id = self.class.id
+  #   @titulo = titulo
+  #   @preco = preco
+  #   @id = self.class.next_id
+  #   @new_record = true
+  #   @destroyed = false
+  # end
 
   # def titulo
   #   titulo_up = @titulo.upcase

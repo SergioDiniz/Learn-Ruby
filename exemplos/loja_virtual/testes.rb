@@ -118,18 +118,34 @@ require 'yaml'
 
 # puts dvd_gospel.preco_formatado
 # puts dvd_gospel.preco_com_desconto_formatado
-
+# 
 # nova_revista.save
 
 # nova_revista.preco = 130.9
 # nova_revista.save
 
 
-begin
-  revistas_ruby_pesquisa = Revista.find 4
-  p revistas_ruby_pesquisa
-rescue DocumentNotFound => e
-  puts e
-end
+# begin
+#   revistas_ruby_pesquisa = Revista.find 1
+#   p revistas_ruby_pesquisa
+# rescue DocumentNotFound => e
+#   puts e
+# end
 
-puts "depois do find"
+# puts "depois do find"
+
+# puts Revista.methods
+
+# revista = Revista.new
+# puts revista.new_record
+# puts revista.id
+# puts revista.titulo = "Livro: Ruby On Rails"
+# puts revista.preco = 100.0
+# puts revista.save
+
+# revista = Revista.new titulo: "Livro: Ruby", preco: 99.0
+# p revista
+# revista.save
+
+revistas = Revista.find_by_titulo /Ruby/
+puts revistas

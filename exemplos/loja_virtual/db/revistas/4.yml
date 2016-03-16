@@ -1,0 +1,6 @@
+--- !ruby/object:Revista
+id: 4
+new_record: false
+destroyed: false
+titulo: 'Livro: Ruby On Rails'
+preco: 100.0

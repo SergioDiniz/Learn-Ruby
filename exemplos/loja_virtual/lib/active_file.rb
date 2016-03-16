@@ -1,5 +1,5 @@
 #
-require 'FileUtil'
+require 'FileUtils'
 #
 module ActiveFile
   def save
@@ -14,17 +14,12 @@ module ActiveFile
     unless @destroyed or @new_record
       @destroyed = true
 
-      FileUtil.rm("db/revistas/#{@id}.yml")
+      FileUtils.rm("db/revistas/#{@id}.yml")
     end
   end
 
   #
   module ClassMethods
-    def field(name)
-      @fields ||= []
-      @fields << name
-    end
-
     def find(id)
       raise DocumentNotFound, "Documento #{id}.yml não encontrado!", caller unless File.exist?("db/revistas/#{id}.yml")
       YAML.load File.open("db/revistas/#{id}.yml", "r")
@@ -34,14 +29,79 @@ module ActiveFile
       Dir.glob("db/revistas/*.yml").size + 1
     end
 
-    def self.included(base)
-      base.extend ClassMethods
+    def field(name)
+      @fields ||= []
+      @fields << name
+
+      get = %Q{
+        def #{name}
+          @#{name}
+        end
+      }
+
+      set = %Q{
+        def #{name}=(valor)
+          @#{name}=valor
+        end
+      }
+
+      self.class_eval get
+      self.class_eval set
+    end
+
+    def method_missing(name, *args, &block)
+      super unless name.to_s =~ /^find_by_(.*)/
+
+      argument = args.first
+      field = $1
+
+      super if @fields.include? field
+
+      load_all.select do |object|
+        should_select? object, field, argument
+      end
     end
 
     private
 
-    def serialize
-      YAML.dump self
+    def should_select?(object, field, argument)
+      if argument.kind_of? Regexp
+        object.send(field) =~ argument
+      else
+        object.send(field) == argument
+      end
     end
+
+    def load_all
+      Dir.glob("db/revistas/*.yml").map do |file|
+        deserialize file
+      end
+    end
+
+    def deserialize(file)
+      YAML.load File.open(file, "r")
+    end
+  end
+
+  def self.included(base)
+    base.extend ClassMethods
+    base.class_eval do
+      attr_accessor :id, :new_record, :destroyed
+      def initialize(parametos = {})
+        @id = self.class.next_id
+        @new_record = true
+        @destroyed = false
+
+        parametos.each do |key, valor|
+          instance_variable_set "@#{key}", valor
+        end
+      end
+    end
+  end
+
+  private
+
+  def serialize
+    YAML.dump self
   end
 end

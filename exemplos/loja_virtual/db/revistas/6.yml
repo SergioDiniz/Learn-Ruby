@@ -1,0 +1,6 @@
+--- !ruby/object:Revista
+id: 6
+new_record: false
+destroyed: false
+titulo: 'Livro: Ruby'
+preco: 99.0
