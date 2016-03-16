@@ -1,6 +1,8 @@
 #
 class Revista
   attr_accessor :titulo, :preco, :id
+
+  include ActiveFile
   # @id = 0
 
   # def self.id
@@ -12,6 +14,8 @@ class Revista
     @titulo = titulo
     @preco = preco
     @id = self.class.next_id
+    @new_record = true
+    @destroyed = false
   end
 
   # def titulo
@@ -19,24 +23,24 @@ class Revista
   #   "Revista: #{titulo_up}"
   # end
 
-  def save
-    File.open("db/revistas/#{@id}.yml", "w") do |file|
-      file.puts serialize
-    end
-  end
+  # def save
+  #   File.open("db/revistas/#{@id}.yml", "w") do |file|
+  #     file.puts serialize
+  #   end
+  # end
 
-  def self.find(id)
-    raise DocumentNotFound, "Documento #{id}.yml não encontrado!", caller unless File.exist?("db/revistas/#{id}.yml")
-    YAML.load File.open("db/revistas/#{id}.yml", "r")
-  end
+  # def self.find(id)
+  #   raise DocumentNotFound, "Documento #{id}.yml não encontrado!", caller unless File.exist?("db/revistas/#{id}.yml")
+  #   YAML.load File.open("db/revistas/#{id}.yml", "r")
+  # end
 
-  private
+  # private
 
-  def serialize
-    YAML.dump self
-  end
+  # def serialize
+  #   YAML.dump self
+  # end
 
-  def self.next_id
-    Dir.glob("db/revistas/*.yml").size + 1
-  end
+  # def self.next_id
+  #   Dir.glob("db/revistas/*.yml").size + 1
+  # end
 end
