@@ -1,0 +1,21 @@
+PATH
+  remote: active_file
+  specs:
+    active_file (0.2.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    brnumeros (3.3.0)
+    rake (11.1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  active_file!
+  brnumeros (= 3.3.0)
+  rake (= 11.1.1)
+
+BUNDLED WITH
+   1.11.2

@@ -1,4 +1,3 @@
-require File.expand_path("lib/active_file")
 require File.expand_path("lib/formatar_moeda")
 require File.expand_path("lib/midia")
 require File.expand_path("lib/livro")

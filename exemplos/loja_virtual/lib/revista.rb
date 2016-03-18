@@ -1,6 +1,8 @@
 #
 class Revista
-  include ActiveFile
+  require 'bundler/setup'
+  require 'active_file'
+  
 
   field :titulo
   field :preco

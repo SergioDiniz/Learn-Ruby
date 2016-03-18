@@ -1,0 +1,1 @@
+require "active_file/tasks/db.rake"

@@ -1,6 +1,6 @@
 #
 module FormatarMoeda
-  require 'rubygems'
+  require 'bundler/setup'
   require 'brnumeros'
   # def preco_formatado
   #   "R$ #{@preco}"
