@@ -147,5 +147,8 @@ require 'yaml'
 # p revista
 # revista.save
 
-revistas = Revista.find_by_titulo /Ruby/
-puts revistas
+# revistas = Revista.find_by_titulo /Ruby/
+# puts revistas
+
+dvd_gospel = DVD.new "Sucessos Gospel", 120.72, :musica
+puts dvd_gospel.preco_por_extenso

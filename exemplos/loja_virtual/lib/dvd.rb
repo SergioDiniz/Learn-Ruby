@@ -9,7 +9,7 @@ class DVD < Midia
   #   end
   # end
 
-  extend FormatarMoeda
+  include FormatarMoeda
 
   formata_moeda :preco_com_desconto, :preco
 
